@@ -1,0 +1,8 @@
+node_modules/
+src/
+.claude/
+package.json
+vite.config.js
+*.bat
+*.txt
+!README.md
