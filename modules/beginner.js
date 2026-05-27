@@ -88,7 +88,7 @@ function Chapter(_p) {
     <section id={'bchapter-' + index} className="bchapter">
       <div className="bchapter-inner">
         <div className="chapter-header">
-          <span className="chapter-icon">{icon}</span>
+          <span className="chapter-icon">{React.createElement(CHAPTER_ICONS[icon] || 'span')}</span>
           <div className="chapter-num">第 {index + 1} 课</div>
           <h2 className="chapter-title">{title}</h2>
           <p className="chapter-summary">{summary}</p>
@@ -173,7 +173,7 @@ function BProgressSidebar(_p) {
 /* ── Chapter Data ── */
 var beginnerChapters = [
   {
-    icon: '\u{1F0CF}',
+    icon: 'card',
     title: '这是什么游戏？',
     summary: '德州扑克是全世界最流行的扑克游戏。2-10 人围坐一桌，用 2 张自己的牌 + 5 张公共牌，组合出最大的 5 张牌型，赢走底池。',
     id: 'what-is',
@@ -212,7 +212,7 @@ var beginnerChapters = [
     ],
   },
   {
-    icon: '\u{1F504}',
+    icon: 'refresh',
     title: '游戏怎么进行？',
     summary: '一局德州扑克分为四个阶段：翻牌前 → 翻牌 → 转牌 → 河牌。每一轮发牌后都有一轮下注，共四轮发牌 + 四轮下注。',
     id: 'game-flow',
@@ -264,7 +264,7 @@ var beginnerChapters = [
     ],
   },
   {
-    icon: '\u{1F451}',
+    icon: 'crown',
     title: '牌型大小排名',
     summary: '从最大到最小共 9 种牌型。记住口诀：皇家同花顺最大，高牌最小。同花顺 → 四条 → 葫芦 → 同花 → 顺子 → 三条 → 两对 → 一对 → 高牌。',
     id: 'hand-rankings',
@@ -362,7 +362,7 @@ var beginnerChapters = [
     ],
   },
   {
-    icon: '\u{1F4B0}',
+    icon: 'money',
     title: '下注规则',
     summary: '德州扑克的魅力在于下注。你可以弃牌走人、过牌观望、跟注参战、加注施压、甚至全下梭哈。你的每一个动作都在讲一个故事。',
     id: 'betting',
@@ -403,7 +403,7 @@ var beginnerChapters = [
     ],
   },
   {
-    icon: '\u{1F3AE}',
+    icon: 'gamepad',
     title: '一局完整演示',
     summary: '纸上得来终觉浅。下面是一局真实的德州扑克从发牌到摊牌的完整过程，点击按钮逐步推进，看看每个阶段发生了什么。',
     id: 'demo',

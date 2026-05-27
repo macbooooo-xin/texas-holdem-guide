@@ -110,7 +110,7 @@ function HandsModule() {
   return (
     <div className="module-hands">
       <div className="module-page-header">
-        <h1 className="module-page-title">{'\u{1F451}'} 牌型大全</h1>
+        <h1 className="module-page-title"><IconCrown /> 牌型大全</h1>
         <p className="module-page-subtitle">9种牌型从强到弱，配扑克牌可视化和概率数据</p>
       </div>
 
@@ -146,7 +146,7 @@ function HandsModule() {
                     <CardRow cards={hand.cards} size="table" />
                   </div>
                   <p className="hand-card-desc">{hand.desc}</p>
-                  <div className="hand-card-tip">{'\u{1F4A1}'} {hand.tip}</div>
+                  <div className="hand-card-tip"><IconBulb /> {hand.tip}</div>
                 </div>
               </div>
             );
@@ -186,22 +186,22 @@ function HandsModule() {
         <div className="hands-tips">
           <div className="tips-list">
             <div className="tip-card">
-              <h4>{'\u{274C}'} 误区一：顺子比同花大</h4>
+              <h4><IconCross /> 误区一：顺子比同花大</h4>
               <p>很多人觉得"顺子"听起来更厉害，但同花（同一花色）的出现概率更低，因此<strong>同花比顺子大</strong>。</p>
               <p className="tip-remember">记忆口诀：同花顺 → 四条 → 葫芦 → <strong>同花 → 顺子</strong> → 三条 → 两对 → 一对 → 高牌</p>
             </div>
             <div className="tip-card">
-              <h4>{'\u{274C}'} 误区二：A-2-3-4-5 不是顺子</h4>
+              <h4><IconCross /> 误区二：A-2-3-4-5 不是顺子</h4>
               <p>A 既可以作为最大的牌（A-K-Q-J-10），也可以作为最小的牌（5-4-3-2-A）。后者被称为 <strong>"Wheel"（轮子）</strong>，是完全合法的顺子。</p>
               <p className="tip-remember">但注意：K-A-2-3-4 不是顺子，A 不能"绕一圈"连接 K 和 2。</p>
             </div>
             <div className="tip-card">
-              <h4>{'\u{274C}'} 误区三：牌型相同就平分</h4>
+              <h4><IconCross /> 误区三：牌型相同就平分</h4>
               <p>牌型相同时，需要<strong>逐个比较</strong>牌的大小。例如两人都有两对，先比大对子、再比小对子、最后比踢脚牌。</p>
               <p className="tip-remember">踢脚牌（Kicker）经常决定胜负，别忽略它！</p>
             </div>
             <div className="tip-card">
-              <h4>{'\u{274C}'} 误区四：手上有对子就很大</h4>
+              <h4><IconCross /> 误区四：手上有对子就很大</h4>
               <p>一对是最常见的牌型之一，出现概率高达 42%。但对手也可能有一对，而且对子比你大。</p>
               <p className="tip-remember">手里有一对小牌（如 2-2）时，翻牌后如果没有中三条，通常应该谨慎行事。</p>
             </div>

@@ -3,12 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>德州扑克资料站</title>
+
+  <!-- ── Primary SEO ── -->
+  <title>德州扑克资料站 — 从零到进阶的一站式学习平台</title>
+  <meta name="description" content="德州扑克入门到进阶一站式学习平台：入门指南、牌型大全、起手牌表、位置策略、概率赔率、术语词典、知识测验。零基础也能看懂牌局。" />
+  <meta name="keywords" content="德州扑克, Texas Hold'em, 扑克入门, 扑克教程, 起手牌, 牌型排名, 位置策略, 概率计算, 底池赔率, 扑克术语, 知识测验" />
+  <meta name="author" content="Texas Hold'em Guide" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://macbooooo-xin.github.io/texas-holdem-guide/" />
+
+  <!-- ── Open Graph (Facebook / LinkedIn / Discord) ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="德州扑克资料站" />
+  <meta property="og:title" content="德州扑克资料站 — 从零到进阶的一站式学习平台" />
+  <meta property="og:description" content="入门指南、牌型大全、起手牌表、位置策略、概率赔率、术语词典、知识测验。零基础也能看懂牌局。" />
+  <meta property="og:url" content="https://macbooooo-xin.github.io/texas-holdem-guide/" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="德州扑克资料站 — 从零到进阶的一站式学习平台" />
+  <meta name="twitter:description" content="入门指南、牌型大全、起手牌表、位置策略、概率赔率、术语词典、知识测验。" />
+
+  <!-- ── Structured Data: JSON-LD ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "德州扑克资料站",
+    "url": "https://macbooooo-xin.github.io/texas-holdem-guide/",
+    "description": "德州扑克入门到进阶一站式学习平台",
+    "inLanguage": "zh-CN",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://macbooooo-xin.github.io/texas-holdem-guide/#/glossary?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalResource",
+    "name": "德州扑克资料站",
+    "description": "涵盖入门指南、牌型大全、起手牌表、位置策略、概率赔率、术语词典、知识测验的德州扑克学习平台",
+    "educationalLevel": "beginner to intermediate",
+    "learningResourceType": "SelfAssessment",
+    "teaches": "Texas Hold'em Poker"
+  }
+  </script>
+
+  <!-- ── Fonts ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="preconnect" href="https://unpkg.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- ── Noscript fallback for crawlers ── -->
+  <noscript>
+    <div style="padding:40px;max-width:720px;margin:0 auto;font-family:sans-serif;color:#f0e6d3;background:#1a3a2a;min-height:100vh;">
+      <h1>德州扑克资料站</h1>
+      <p>从零到进阶的德州扑克一站式学习平台。</p>
+      <h2>内容模块</h2>
+      <ul>
+        <li><a href="#/beginner">入门指南</a> — 5节课从零了解德州扑克</li>
+        <li><a href="#/hands">牌型大全</a> — 9种牌型详解与对比</li>
+        <li><a href="#/starthand">起手牌表</a> — 169种起手牌范围分析</li>
+        <li><a href="#/position">位置策略</a> — 9人桌各位置策略</li>
+        <li><a href="#/odds">概率赔率</a> — Outs计算与底池赔率</li>
+        <li><a href="#/glossary">术语词典</a> — 88个扑克术语中英对照</li>
+        <li><a href="#/quiz">知识测验</a> — 35道题检验学习成果</li>
+      </ul>
+      <p style="margin-top:24px;opacity:0.5">需要启用 JavaScript 以获得完整体验。</p>
+    </div>
+  </noscript>
 </head>
 <body>
   <div id="root"></div>
@@ -21,6 +90,7 @@
   <!-- Shared Components -->
   <script type="text/babel" src="components/PlayingCard.js"></script>
   <script type="text/babel" src="components/PokerTable.js"></script>
+  <script type="text/babel" src="components/Icons.js"></script>
   <script type="text/babel" src="components/NavBar.js"></script>
 
   <!-- Modules (load before app) -->

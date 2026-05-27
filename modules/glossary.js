@@ -28,14 +28,14 @@ function GlossaryModule() {
   return (
     <div className="module-glossary">
       <div className="module-page-header">
-        <h1 className="module-page-title">{'\u{1F4DD}'} 术语词典</h1>
+        <h1 className="module-page-title"><IconFileText /> 术语词典</h1>
         <p className="module-page-subtitle">{GLOSSARY_TERMS.length}+ 个扑克术语 · 中英文对照 · 分类检索</p>
       </div>
 
       {/* Search + Filter */}
       <div className="glossary-toolbar">
         <div className="glossary-search">
-          <span className="glossary-search-icon">{'\u{1F50D}'}</span>
+          <span className="glossary-search-icon"><IconSearch /></span>
           <input
             type="text"
             className="glossary-search-input"
@@ -44,7 +44,7 @@ function GlossaryModule() {
             onChange={function(e) { setQuery(e.target.value); }}
           />
           {query && (
-            <button className="glossary-search-clear" onClick={function() { setQuery(''); }}>{'\u{2715}'}</button>
+            <button className="glossary-search-clear" onClick={function() { setQuery(''); }}><IconCross /></button>
           )}
         </div>
         <div className="glossary-cats">
@@ -75,7 +75,7 @@ function GlossaryModule() {
               </div>
               <p className="glossary-item-def">{term.def}</p>
               {term.ex && (
-                <p className="glossary-item-ex">{'\u{1F4AC}'} "{term.ex}"</p>
+                <p className="glossary-item-ex"><IconChat /> "{term.ex}"</p>
               )}
             </div>
           );

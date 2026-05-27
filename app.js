@@ -2,6 +2,36 @@
    App Shell — Hash Router + Top Nav + Module Container
    ═══════════════════════════════════════════════════════════ */
 
+/* ── SEO Meta Map ── */
+var SEO_META = {
+  beginner:  { title: '入门指南 — 德州扑克资料站', desc: '5节渐进式课程从零了解德州扑克：游戏规则、牌型大小、下注策略、完整牌局演示。' },
+  hands:     { title: '牌型大全 — 德州扑克资料站', desc: '9种牌型从皇家同花顺到高牌，含扑克牌可视化、对比示例、概率数据和常见误区。' },
+  starthand: { title: '起手牌表 — 德州扑克资料站', desc: '169种起手牌组合的9人桌范围分析，按UTG到BB各位置展示加注/跟注/弃牌建议。' },
+  position:  { title: '位置策略 — 德州扑克资料站', desc: '9人桌各位置详解：UTG到BTN的行动顺序、策略要点、推荐手牌范围。' },
+  odds:      { title: '概率赔率 — 德州扑克资料站', desc: 'Outs计算器、底池赔率分析、常用概率速查表和四二法则，助你做出+EV决策。' },
+  glossary:  { title: '术语词典 — 德州扑克资料站', desc: '88个德州扑克术语中英文对照，支持搜索和分类筛选，从All-in到价值下注全覆盖。' },
+  quiz:      { title: '知识测验 — 德州扑克资料站', desc: '35道选择题覆盖入门、牌型、规则、策略、概率，即时判分+答案解析。' },
+};
+
+function updateSEOMeta(route) {
+  var meta = SEO_META[route];
+  if (!meta) {
+    document.title = '德州扑克资料站 — 一站式学习平台';
+    return;
+  }
+  document.title = meta.title;
+  var descEl = document.querySelector('meta[name="description"]');
+  if (descEl) descEl.setAttribute('content', meta.desc);
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', meta.title);
+  var ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', meta.desc);
+  var twTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twTitle) twTitle.setAttribute('content', meta.title);
+  var twDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twDesc) twDesc.setAttribute('content', meta.desc);
+}
+
 /* ── Simple Hash Router ── */
 function useHashRouter() {
   var _s = React.useState(function() {
@@ -12,9 +42,14 @@ function useHashRouter() {
 
   React.useEffect(function() {
     function onHashChange() {
-      setRoute(window.location.hash.replace('#/', '') || 'beginner');
+      var newRoute = window.location.hash.replace('#/', '') || 'beginner';
+      setRoute(newRoute);
+      updateSEOMeta(newRoute);
     }
     window.addEventListener('hashchange', onHashChange);
+    // Initial title set
+    var initialRoute = window.location.hash.replace('#/', '') || 'beginner';
+    updateSEOMeta(initialRoute);
     return function() { window.removeEventListener('hashchange', onHashChange); };
   }, []);
 
@@ -33,7 +68,7 @@ function PlaceholderModule(_p) {
   return (
     <div className="module-placeholder">
       <div className="module-placeholder-inner">
-        <span className="module-placeholder-icon">{icon}</span>
+        <span className="module-placeholder-icon">{React.createElement(NAV_ICONS[icon] || 'span')}</span>
         <h2>{title}</h2>
         <p>{desc}</p>
         <div className="module-placeholder-badge">即将上线</div>
@@ -45,12 +80,12 @@ function PlaceholderModule(_p) {
 /* ── Module Registry ── */
 var MODULES = {
   beginner:  { component: BeginnerModule, title: '入门指南' },
-  hands:     { title: '牌型大全', icon: '\u{1F451}', desc: '9种牌型的详细介绍、对比工具和概率速查。' },
-  starthand: { title: '起手牌表', icon: '\u{1F0A1}', desc: '169种起手牌的胜率分析和位置修正。' },
-  position:  { title: '位置策略', icon: '\u{1F4CD}', desc: '9人桌位置详解与策略指南。' },
-  odds:      { title: '概率赔率', icon: '\u{1F3AF}', desc: 'Outs计算器、底池赔率和常用概率速查。' },
-  glossary:  { title: '术语词典', icon: '\u{1F4DD}', desc: '80+个扑克术语中英文对照和释义。' },
-  quiz:      { title: '知识测验', icon: '\u{2705}', desc: '30+道选择题，检验你的学习成果。' },
+  hands:     { title: '牌型大全', icon: 'hands', desc: '9种牌型的详细介绍、对比工具和概率速查。' },
+  starthand: { title: '起手牌表', icon: 'starthand', desc: '169种起手牌的胜率分析和位置修正。' },
+  position:  { title: '位置策略', icon: 'position', desc: '9人桌位置详解与策略指南。' },
+  odds:      { title: '概率赔率', icon: 'odds', desc: 'Outs计算器、底池赔率和常用概率速查。' },
+  glossary:  { title: '术语词典', icon: 'glossary', desc: '80+个扑克术语中英文对照和释义。' },
+  quiz:      { title: '知识测验', icon: 'quiz', desc: '30+道选择题，检验你的学习成果。' },
 };
 
 /* ── Module Loader ── */

@@ -84,11 +84,11 @@ function QuizModule() {
     return (
       <div className="module-quiz">
         <div className="module-page-header">
-          <h1 className="module-page-title">{'\u{2705}'} 知识测验</h1>
+          <h1 className="module-page-title"><IconCheckCircle /> 知识测验</h1>
           <p className="module-page-subtitle">{QUIZ_QUESTIONS.length} 道题 · 覆盖全部知识点 · 即时判分</p>
         </div>
         <div className="quiz-start-card">
-          <div className="quiz-start-icon">{'\u{1F3AF}'}</div>
+          <div className="quiz-start-icon"><IconTarget /></div>
           <h3>准备开始测验</h3>
           <div className="quiz-start-info">
             <div className="quiz-start-stat">
@@ -148,7 +148,7 @@ function QuizModule() {
                 >
                   <span className="quiz-option-letter">{'ABCD'[i]}</span>
                   <span className="quiz-option-text">{opt}</span>
-                  {isSelected && <span className="quiz-option-check">{'\u{2705}'}</span>}
+                  {isSelected && <span className="quiz-option-check"><IconCheck /></span>}
                 </button>
               );
             })}
@@ -187,7 +187,7 @@ function QuizModule() {
   // ── Result Screen ──
   if (phase === 'result') {
     var r = results;
-    var grade = r.score >= 90 ? '\u{1F3C6} 优秀' : r.score >= 70 ? '\u{1F44D} 良好' : r.score >= 50 ? '\u{1F4AA} 加油' : '\u{1F4DA} 继续学习';
+    var grade = r.score >= 90 ? '优秀' : r.score >= 70 ? '良好' : r.score >= 50 ? '加油' : '继续学习';
 
     return (
       <div className="module-quiz">
@@ -209,7 +209,7 @@ function QuizModule() {
                 <div key={i} className={'quiz-review-item ' + (isCorrect ? 'correct' : 'wrong')}>
                   <div className="quiz-review-q">
                     <span className={'quiz-review-mark' + (isCorrect ? ' correct' : ' wrong')}>
-                      {isCorrect ? '\u{2705}' : '\u{274C}'}
+                      {isCorrect ? <IconCheck /> : <IconCross />}
                     </span>
                     <span>{q.q}</span>
                     <span className="quiz-review-cat">{q.cat}</span>

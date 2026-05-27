@@ -39,7 +39,7 @@ function PositionModule() {
   return (
     <div className="module-position">
       <div className="module-page-header">
-        <h1 className="module-page-title">{'\u{1F4CD}'} 位置策略</h1>
+        <h1 className="module-page-title"><IconPin /> 位置策略</h1>
         <p className="module-page-subtitle">9人桌完整位置图 · 点击座位查看详细策略</p>
       </div>
 
@@ -108,13 +108,13 @@ function PositionModule() {
                 </div>
               </div>
               <div className="pos-detail-tip">
-                <strong>{'\u{1F4A1}'} 策略提示：</strong>
+                <strong><IconBulb /> 策略提示：</strong>
                 {selData.tip}
               </div>
             </div>
           ) : (
             <div className="pos-detail-empty">
-              <span className="pos-detail-empty-icon">{'\u{1F446}'}</span>
+              <span className="pos-detail-empty-icon"><IconPointUp /></span>
               <p>点击左侧座位图中的任意位置<br />查看详细策略</p>
             </div>
           )}

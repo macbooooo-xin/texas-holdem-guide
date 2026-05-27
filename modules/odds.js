@@ -60,7 +60,7 @@ function OddsModule() {
   return (
     <div className="module-odds">
       <div className="module-page-header">
-        <h1 className="module-page-title">{'\u{1F3AF}'} 概率与赔率</h1>
+        <h1 className="module-page-title"><IconTarget /> 概率与赔率</h1>
         <p className="module-page-subtitle">Outs 计算 · 底池赔率 · 常用概率速查 · 四二法则</p>
       </div>
 
@@ -256,7 +256,7 @@ function PotOddsCalculator() {
             <strong>{neededEquity}%</strong>
           </div>
           <div className={'potodds-verdict ' + (isProfitable ? 'good' : 'bad')}>
-            {isProfitable ? '\u{2705} 值得跟注' : '\u{274C} 应该弃牌'}
+            {isProfitable ? <span><IconCheck /> 值得跟注</span> : <span><IconCross /> 应该弃牌</span>}
             <span className="potodds-verdict-reason">
               {isProfitable
                 ? '（你的胜率 ' + equity + '% ≥ 所需 ' + neededEquity + '%）'
@@ -284,7 +284,7 @@ function RuleOf42() {
   return (
     <div className="odds-calc">
       <div className="rule42-intro">
-        <h3>{'\u{1F9EE}'} 四二法则 — 快速计算胜率</h3>
+        <h3>四二法则 — 快速计算胜率</h3>
         <p>在牌桌上不可能用计算器，但可以用这个简便方法心算胜率：</p>
       </div>
 
