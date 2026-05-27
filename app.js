@@ -85,6 +85,12 @@ function ModuleLoader(_p) {
   if (route === 'odds' && typeof OddsModule !== 'undefined') {
     return <OddsModule />;
   }
+  if (route === 'glossary' && typeof GlossaryModule !== 'undefined') {
+    return <GlossaryModule />;
+  }
+  if (route === 'quiz' && typeof QuizModule !== 'undefined') {
+    return <QuizModule />;
+  }
 
   // Future modules show placeholder
   return <PlaceholderModule title={mod.title} icon={mod.icon} desc={mod.desc} />;
