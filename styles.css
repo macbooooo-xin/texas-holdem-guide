@@ -1683,3 +1683,612 @@ body {
   .sh-hand-suffix { font-size: 7px; }
   .hands-tabs { display: flex; margin-left: 0; transform: none; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   Module: Position (位置策略)
+   ═══════════════════════════════════════════════════════ */
+.module-position {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.pos-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.pos-diagram {
+  flex: 1;
+  min-width: 380px;
+}
+
+.pos-table {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1.6 / 1;
+  margin: 0 auto 24px;
+}
+
+.pos-felt {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 50%, #1a6b30 0%, #145c24 40%, #0f4d1d 100%);
+  box-shadow:
+    0 0 0 10px #5c3d2e,
+    0 0 0 14px #7a5540,
+    0 0 0 18px #4a2f22,
+    0 0 0 22px #6b4835,
+    0 0 0 26px #3d2419,
+    0 0 0 27px rgba(0,0,0,0.3),
+    0 6px 24px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.4);
+}
+
+.pos-community-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 50px;
+  border-radius: 8px;
+  border: 2px dashed rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.02);
+}
+
+.pos-center-label {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.pos-seat {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  z-index: 3;
+  padding: 6px;
+}
+
+.pos-seat-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.25);
+  transition: all var(--transition);
+}
+
+.pos-seat:hover .pos-seat-dot { background: rgba(201,168,76,0.3); border-color: var(--gold); }
+.pos-seat.active .pos-seat-dot { background: var(--gold); border-color: var(--gold-light); }
+
+.pos-seat-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.pos-seat:hover .pos-seat-label { color: var(--text-primary); }
+.pos-seat.active .pos-seat-label { color: var(--gold); }
+
+/* Action order */
+.pos-action-order {
+  text-align: center;
+}
+
+.pos-action-order h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pos-order-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.pos-order-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.pos-order-num {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.15);
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pos-order-arrow {
+  color: var(--text-muted);
+  font-size: 10px;
+  margin: 0 2px;
+}
+
+.pos-order-note {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Detail panel */
+.pos-detail {
+  width: 340px;
+  flex-shrink: 0;
+}
+
+.pos-detail-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.pos-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.pos-detail-badge {
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: var(--gold);
+  color: var(--felt-dark);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.pos-detail-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pos-detail-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.pos-detail-stats {
+  margin-bottom: 14px;
+}
+
+.pos-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+}
+
+.pos-stat-label { font-size: 13px; color: var(--text-muted); }
+.pos-stat-val { font-size: 13px; font-weight: 700; color: var(--gold-light); }
+
+.pos-detail-tip {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  padding: 12px;
+  background: rgba(201,168,76,0.05);
+  border-radius: 8px;
+  border-left: 3px solid var(--gold);
+}
+
+.pos-detail-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.08);
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+.pos-detail-empty-icon { font-size: 40px; display: block; margin-bottom: 12px; }
+.pos-detail-empty p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+/* Position ranking */
+.pos-ranking {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,168,76,0.08);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.pos-ranking h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.pos-ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pos-rank-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.pos-rank-item.tier-s { background: rgba(46,160,67,0.08); }
+.pos-rank-item.tier-a { background: rgba(46,160,67,0.05); }
+.pos-rank-item.tier-b { background: rgba(210,153,34,0.05); }
+.pos-rank-item.tier-c { background: rgba(210,153,34,0.03); }
+.pos-rank-item.tier-d { background: rgba(248,81,73,0.05); }
+
+.pos-rank-badge {
+  width: 40px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pos-rank-name {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .pos-layout { flex-direction: column; }
+  .pos-detail { width: 100%; }
+  .pos-diagram { min-width: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   Module: Odds (概率与赔率)
+   ═══════════════════════════════════════════════════════ */
+.module-odds {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.odds-calc {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Scenario selector */
+.odds-scenarios {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.odds-scenario-btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(201,168,76,0.15);
+  background: rgba(255,255,255,0.02);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all var(--transition);
+  font-family: inherit;
+}
+
+.odds-scenario-btn:hover { border-color: rgba(201,168,76,0.3); }
+.odds-scenario-btn.active { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+
+.odds-scenario-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.odds-scenario-outs {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Scenario detail */
+.odds-scenario-detail {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,168,76,0.08);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.odds-scenario-cards {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.odds-card-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.odds-card-group-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.odds-scenario-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Outs slider */
+.odds-outs-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.odds-slider {
+  flex: 1;
+  max-width: 300px;
+  accent-color: var(--gold);
+}
+
+.odds-outs-val {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--gold);
+  min-width: 30px;
+}
+
+/* Results */
+.odds-results {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.odds-result-card {
+  flex: 1;
+  text-align: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.odds-result-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.odds-result-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+
+.odds-result-odds {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Probability table */
+.odds-table-wrap {
+  overflow-x: auto;
+}
+
+.odds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.odds-table th {
+  text-align: left;
+  padding: 12px 16px;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.odds-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+}
+
+.odds-td-scene { color: var(--text-primary); font-weight: 500; }
+.odds-td-num { color: var(--gold-light); font-weight: 600; white-space: nowrap; }
+.odds-td-desc { font-size: 13px; }
+
+.odds-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+/* Pot odds */
+.potodds-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.potodds-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.potodds-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.potodds-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 60px;
+  text-align: right;
+}
+
+.potodds-result {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.potodds-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.potodds-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.potodds-row strong {
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.potodds-verdict {
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.potodds-verdict.good { background: rgba(46,160,67,0.1); color: #3fb950; }
+.potodds-verdict.bad { background: rgba(248,81,73,0.1); color: #f85149; }
+
+.potodds-verdict-reason {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.potodds-explain {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  background: rgba(255,255,255,0.02);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.potodds-explain strong { color: var(--gold-light); }
+
+/* Rule of 4 and 2 */
+.rule42-intro {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.rule42-intro h3 { font-size: 20px; margin-bottom: 8px; }
+.rule42-intro p { font-size: 14px; color: var(--text-secondary); }
+
+.rule42-cards {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.rule42-card {
+  flex: 1;
+  text-align: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.rule42-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.rule42-card-formula {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.rule42-card-example {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.rule42-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  padding: 12px;
+  background: rgba(201,168,76,0.05);
+  border-radius: 8px;
+  border-left: 3px solid var(--gold);
+}
+
+.rule42-note strong { color: var(--text-primary); }
+
+@media (max-width: 640px) {
+  .odds-results { flex-direction: column; }
+  .rule42-cards { flex-direction: column; }
+}

@@ -79,6 +79,12 @@ function ModuleLoader(_p) {
   if (route === 'starthand' && typeof StartingHandsModule !== 'undefined') {
     return <StartingHandsModule />;
   }
+  if (route === 'position' && typeof PositionModule !== 'undefined') {
+    return <PositionModule />;
+  }
+  if (route === 'odds' && typeof OddsModule !== 'undefined') {
+    return <OddsModule />;
+  }
 
   // Future modules show placeholder
   return <PlaceholderModule title={mod.title} icon={mod.icon} desc={mod.desc} />;
