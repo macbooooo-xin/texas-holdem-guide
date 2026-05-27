@@ -3,19 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>德州扑克入门指南</title>
+  <title>德州扑克资料站</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://unpkg.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div id="root"></div>
 
+  <!-- Dependencies -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <script type="text/babel" data-type="module" src="app.js"></script>
+  <!-- Shared Components -->
+  <script type="text/babel" src="components/PlayingCard.js"></script>
+  <script type="text/babel" src="components/PokerTable.js"></script>
+  <script type="text/babel" src="components/NavBar.js"></script>
+
+  <!-- Modules (load before app) -->
+  <script type="text/babel" src="modules/beginner.js"></script>
+
+  <!-- App Shell -->
+  <script type="text/babel" src="app.js"></script>
 </body>
 </html>
