@@ -69,12 +69,18 @@ function ModuleLoader(_p) {
     );
   }
 
-  // Beginner module is the only one implemented so far
+  // Load implemented modules
   if (route === 'beginner' && typeof BeginnerModule !== 'undefined') {
     return <BeginnerModule />;
   }
+  if (route === 'hands' && typeof HandsModule !== 'undefined') {
+    return <HandsModule />;
+  }
+  if (route === 'starthand' && typeof StartingHandsModule !== 'undefined') {
+    return <StartingHandsModule />;
+  }
 
-  // All other modules show placeholder for now
+  // Future modules show placeholder
   return <PlaceholderModule title={mod.title} icon={mod.icon} desc={mod.desc} />;
 }
 
